@@ -5,5 +5,5 @@ Config.MaxDistance = 4
 Config.ClickDistance = 2
 
 Config.Map = {
-  {name="Money Wash",  		color=6, scale=1, id=500, x = 1126.0, y = -1241.8, z = 21.5}
+  {name="Money Wash",  		color=6, scale=1.0, id=500, x = 1126.0, y = -1241.8, z = 21.5}
 }
