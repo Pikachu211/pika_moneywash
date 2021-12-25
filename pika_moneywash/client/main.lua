@@ -31,7 +31,7 @@ Citizen.CreateThread(function()
         local pedCoords = GetEntityCoords(PlayerPedId())
         if PlayerLoaded == true then
             if Vdist(pedCoords, location) < Config.MaxDistance then
-                Draw3DText(location.x, location.y, location.z, "~w~Press ~r~[E] ~w~to ~y~Money Wash~w~!", 0.4)
+                Draw3DText(location.x, location.y, location.z, "~w~Klikni na ~r~[E] ~w~pro ~y~prani penez~w~!", 0.4)
                 if Vdist(pedCoords, location) < Config.ClickDistance and IsControlPressed(1, 38) then
                     if allowWash == true then
                         Citizen.CreateThread(function()
@@ -46,4 +46,24 @@ Citizen.CreateThread(function()
         end
         Citizen.Wait(0)
     end
+end)
+
+-- DELETE EVERYTHING UNDER THIS TEXT IF U DONT WANT BLIP, THEN GO TO CONFIG FILE AND DELETE Config.Map --
+
+Citizen.CreateThread(function()
+	
+	for i=1, #Config.Map, 1 do
+		
+		local blip = AddBlipForCoord(Config.Map[i].x, Config.Map[i].y, Config.Map[i].z)
+		SetBlipSprite (blip, Config.Map[i].id)
+		SetBlipDisplay(blip, 4)
+		SetBlipColour (blip, Config.Map[i].color)
+		SetBlipScale  (blip, Config.Map[i].scale)
+		SetBlipAsShortRange(blip, true)
+
+		BeginTextCommandSetBlipName("STRING")
+		AddTextComponentString(Config.Map[i].name)
+		EndTextCommandSetBlipName(blip)
+	end
+
 end)
