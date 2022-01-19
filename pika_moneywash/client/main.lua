@@ -31,7 +31,7 @@ Citizen.CreateThread(function()
         local pedCoords = GetEntityCoords(PlayerPedId())
         if PlayerLoaded == true then
             if Vdist(pedCoords, location) < Config.MaxDistance then
-                Draw3DText(location.x, location.y, location.z, "~w~Klikni na ~r~[E] ~w~pro ~y~prani penez~w~!", 0.4)
+                Draw3DText(location.x, location.y, location.z, "~w~Click E ~r~[E] ~w~for ~y~Money Wash~w~!", 0.4)
                 if Vdist(pedCoords, location) < Config.ClickDistance and IsControlPressed(1, 38) then
                     if allowWash == true then
                         Citizen.CreateThread(function()
