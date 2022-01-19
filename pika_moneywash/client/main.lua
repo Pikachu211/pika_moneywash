@@ -48,21 +48,19 @@ Citizen.CreateThread(function()
     end
 end)
 
--- DELETE EVERYTHING UNDER THIS TEXT IF U DONT WANT BLIP, THEN GO TO CONFIG FILE AND DELETE Config.Map --
-
 Citizen.CreateThread(function()
 	
-	for i=1, #Config.Map, 1 do
+	if Config.Blip then
 		
-		local blip = AddBlipForCoord(Config.Map[i].x, Config.Map[i].y, Config.Map[i].z)
-		SetBlipSprite (blip, Config.Map[i].id)
+		local blip = AddBlipForCoord(1126.0, -1241.8, 21.5)
+		SetBlipSprite (blip, 500)
 		SetBlipDisplay(blip, 4)
-		SetBlipColour (blip, Config.Map[i].color)
-		SetBlipScale  (blip, Config.Map[i].scale)
+		SetBlipColour (blip, 6)
+		SetBlipScale  (blip, 0.8)
 		SetBlipAsShortRange(blip, true)
 
 		BeginTextCommandSetBlipName("STRING")
-		AddTextComponentString(Config.Map[i].name)
+		AddTextComponentString("Money Wash")
 		EndTextCommandSetBlipName(blip)
 	end
 
